@@ -184,7 +184,7 @@ async function guardarLead(lead, resultado) {
 
 function construirUrlWhatsapp(plan, version) {
   const emoji = EMOJIS_PLAN[plan] || "";
-  const msg = `Hola Sein, hice el quiz y mi plan es ${plan} ${version} ${emoji} Quiero agendar mi primera clase`;
+  const msg = `Hola Sein, hice el quiz y mi plan es ${plan} ${version} ${emoji} Quiero agendar mi clase de prueba`;
   return `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
 }
 
