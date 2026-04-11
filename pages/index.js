@@ -189,7 +189,7 @@ function construirUrlWhatsapp(plan, version) {
 }
 
 const BG = "#EEF3E3";
-const BG_GRAD = "linear-gradient(168deg, #EEF3E3 0%, #E4EBD4 100%)";
+const BG_GRAD = "#EEF3E3";
 const FONT_DISPLAY = "'Fraunces', Georgia, serif";
 const FONT_BODY = "'Nunito', -apple-system, sans-serif";
 const INK = "#3D4028";
