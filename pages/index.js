@@ -84,7 +84,7 @@ const RESULTADOS = {
   FUERZA: {
     color: "#697255", colorLight: "#EEF3E3", colorMid: "#C5CDB4",
     subtitulo: "Build & Strength · Fuerza Consciente",
-    titulo: "Tu energía es FUERZA",
+    titulo: "Tu plan es FUERZA",
     descripcion: "Hay algo en ti que busca firmeza. No solo en el cuerpo — en la vida. Lo que construyes necesita base sólida. Tu forma de entrenar refleja eso: no buscas lo fácil, buscas lo que transforma de adentro hacia afuera.",
     porQue: "El plan FUERZA está diseñado para quienes necesitan sentir progreso real. Pilates Strength y Barre Power van a desafiarte con control, precisión y trabajo profundo. No se trata de levantar más peso, sino de descubrir una fuerza que se siente inquebrantable.",
     sentir: 'Más presencia. Más estabilidad emocional. Una postura que habla por sí sola. Y esa sensación de "hoy pude más que ayer" que engancha como pocas cosas.',
@@ -95,7 +95,7 @@ const RESULTADOS = {
   TONIFICA: {
     color: "#B69C85", colorLight: "#F5EFE8", colorMid: "#E0D0BE",
     subtitulo: "Tone & Sculpt · Define & Activa",
-    titulo: "Tu energía es TONIFICA",
+    titulo: "Tu plan es TONIFICA",
     descripcion: "Lo que buscas es algo que se note. No desde lo extremo, sino desde la constancia. Cuidarse, ser consistente, y ver resultados que hablan solos. Sin necesidad de gritar lo que se hace — el cuerpo lo muestra.",
     porQue: "TONIFICA mezcla activación muscular con trabajo controlado. Barre Power, Barre Fusión y Step en combinaciones que moldean sin agotar. Entrenamiento inteligente: cada clase tiene propósito, cada movimiento cuenta.",
     sentir: "Más definición, más activación, más control. Pero también algo más sutil: la satisfacción de la constancia. Saber que lo que se ve en el espejo es resultado de una disciplina silenciosa.",
@@ -106,7 +106,7 @@ const RESULTADOS = {
   ENERGÍA: {
     color: "#92745C", colorLight: "#F0E8DF", colorMid: "#D4C2B0",
     subtitulo: "Sweat & Cardio · Activa tu Energía",
-    titulo: "Tu energía es ENERGÍA",
+    titulo: "Tu plan es ENERGÍA",
     descripcion: "Necesitas moverte para sentirte con vida. Nada de quedarse quieto. Al entrenar, se descarga, se libera y se sale con carga nueva. El movimiento no es una obligación — es medicina.",
     porQue: "ENERGÍA es intensidad con alegría. Step como protagonista, clases de alta activación diseñadas para sudar, sonreír y salir con la sensación de ser invencible.",
     sentir: "Salir de cada clase con una descarga total. Más claridad mental. Más actitud. Ese subidón que no da el café, lo dan 45 minutos de movimiento sin pensar.",
@@ -117,7 +117,7 @@ const RESULTADOS = {
   BALANCE: {
     color: "#8C906B", colorLight: "#F0F2E4", colorMid: "#CED3B4",
     subtitulo: "Flow & Balance",
-    titulo: "Tu energía es BALANCE",
+    titulo: "Tu plan es BALANCE",
     descripcion: "No todo tiene que ser intenso para ser transformador. Lo que buscas es algo más profundo: conexión. Con el cuerpo, con la respiración, con ese espacio interno que el ruido del día a día tapa. Entrenar es volver a uno mismo.",
     porQue: "BALANCE combina Yoga Flow, Pilates Essential y Yoguilates — movimiento consciente, core, postura y equilibrio. Entrenamiento que se siente como autocuidado: estirar, respirar, fortalecer sin forzar.",
     sentir: "Más calma. Más flexibilidad — no solo física. La sensación de estar presente, de habitar el cuerpo con más conciencia. Y eso se nota en todo: en cómo se duerme, en cómo se responde, en cómo uno se sostiene.",
