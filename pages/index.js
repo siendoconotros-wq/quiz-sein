@@ -195,10 +195,11 @@ const FONT_BODY = "'Nunito', -apple-system, sans-serif";
 const INK = "#3D4028";
 const INK_SOFT = "#697255";
 const INK_MUTED = "#8C906B";
+const NO_LIG = { fontVariantLigatures: "none" };
 
 function SeinLogo({ size = 13, color = INK_SOFT }) {
   return (
-    <div style={{ fontFamily: FONT_DISPLAY, fontSize: size, letterSpacing: 2, color, fontWeight: 500, display: "inline-flex", alignItems: "baseline", gap: 8 }}>
+    <div style={{ fontFamily: FONT_DISPLAY, fontSize: size, letterSpacing: 2, color, fontWeight: 500, display: "inline-flex", alignItems: "baseline", gap: 8, ...NO_LIG }}>
       <span style={{ fontWeight: 600, fontSize: size * 1.15 }}>sein</span>
       <span style={{ fontStyle: "italic", fontSize: size * 0.75, opacity: .75, fontWeight: 400 }}>wellness room</span>
     </div>
@@ -210,9 +211,9 @@ function IntroScreen({ onNext }) {
   useEffect(() => { setTimeout(() => setV(true), 80); }, []);
   return (
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", padding: "48px 24px", background: BG_GRAD, opacity: v ? 1 : 0, transform: v ? "none" : "translateY(16px)", transition: "all .85s cubic-bezier(.22,1,.36,1)" }}>
-      <div style={{ textAlign: "center", maxWidth: 460 }}>
+      <div style={{ textAlign: "center", maxWidth: 480 }}>
         <div style={{ marginBottom: 40 }}><SeinLogo size={14} /></div>
-        <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: "clamp(36px,8vw,54px)", fontWeight: 500, color: INK, lineHeight: 1.1, marginBottom: 22, letterSpacing: -1 }}>Descubre tu forma<br /><em style={{ fontStyle: "italic", fontWeight: 400, color: INK_SOFT }}>de entrenar</em></h1>
+        <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: "clamp(34px,7.5vw,48px)", fontWeight: 500, color: INK, lineHeight: 1.15, marginBottom: 22, letterSpacing: -0.8, maxWidth: 440, margin: "0 auto 22px", ...NO_LIG }}>Descubre tu forma <em style={{ fontStyle: "italic", fontWeight: 400, color: INK_SOFT }}>de entrenar</em></h1>
         <p style={{ fontFamily: FONT_BODY, fontSize: 16, color: INK_MUTED, lineHeight: 1.7, maxWidth: 360, margin: "0 auto 44px", fontWeight: 400 }}>10 preguntas para encontrar el plan que se siente como tú. Sin fórmulas genéricas — con intención.</p>
         <button onClick={onNext} style={{ fontFamily: FONT_BODY, fontSize: 15, fontWeight: 600, letterSpacing: 1, padding: "17px 56px", border: "none", borderRadius: 100, background: INK_SOFT, color: "#FAF9F2", cursor: "pointer", transition: "all .3s ease", boxShadow: "0 4px 14px rgba(105,114,85,.2)" }} onMouseOver={(e) => { e.target.style.background = "#555E42"; e.target.style.transform = "translateY(-2px)"; }} onMouseOut={(e) => { e.target.style.background = INK_SOFT; e.target.style.transform = "none"; }}>Empezar</button>
         <p style={{ fontFamily: FONT_BODY, fontSize: 13, color: INK_MUTED, marginTop: 22, opacity: .7 }}>2 minutos · sin registro invasivo</p>
@@ -235,9 +236,9 @@ function LeadScreen({ onSubmit }) {
   const inputStyle = { fontFamily: FONT_BODY, fontSize: 15, padding: "15px 18px", border: "1.5px solid #C5CDB4", borderRadius: 12, background: "rgba(255,255,255,.7)", color: INK, outline: "none", width: "100%", boxSizing: "border-box", transition: "border-color .25s ease, box-shadow .25s ease", fontWeight: 400 };
   return (
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", padding: "48px 24px", background: BG_GRAD, opacity: v ? 1 : 0, transform: v ? "none" : "translateY(16px)", transition: "all .85s cubic-bezier(.22,1,.36,1)" }}>
-      <div style={{ maxWidth: 410, width: "100%", textAlign: "center", animation: shake ? "shakeX .4s ease" : "none" }}>
+      <div style={{ maxWidth: 420, width: "100%", textAlign: "center", animation: shake ? "shakeX .4s ease" : "none" }}>
         <div style={{ marginBottom: 28 }}><SeinLogo size={12} /></div>
-        <h2 style={{ fontFamily: FONT_DISPLAY, fontSize: "clamp(26px,6vw,34px)", fontWeight: 500, color: INK, lineHeight: 1.25, marginBottom: 12, letterSpacing: -0.5 }}>Antes de empezar,<br /><em style={{ fontStyle: "italic", fontWeight: 400, color: INK_SOFT }}>queremos conocerte</em></h2>
+        <h2 style={{ fontFamily: FONT_DISPLAY, fontSize: "clamp(24px,5.5vw,32px)", fontWeight: 500, color: INK, lineHeight: 1.25, marginBottom: 12, letterSpacing: -0.5, ...NO_LIG }}>Antes de empezar, <em style={{ fontStyle: "italic", fontWeight: 400, color: INK_SOFT }}>queremos conocerte</em></h2>
         <p style={{ fontFamily: FONT_BODY, fontSize: 15, color: INK_MUTED, lineHeight: 1.65, marginBottom: 36, maxWidth: 340, margin: "0 auto 36px", fontWeight: 400 }}>Tu nombre y tu número nos permiten personalizar el resultado y compartirte las clases ideales para tu plan.</p>
         <div style={{ textAlign: "left", marginBottom: 16 }}>
           <label style={{ fontFamily: FONT_BODY, fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: INK_SOFT, display: "block", marginBottom: 7 }}>Tu nombre</label>
@@ -273,7 +274,7 @@ function QuestionScreen({ pregunta, index, total, onSelect }) {
         </div>
       </div>
       <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", padding: "40px 24px 48px", maxWidth: 560, margin: "0 auto", width: "100%", opacity: v ? 1 : 0, transform: v ? "none" : "translateY(14px)", transition: "all .5s cubic-bezier(.22,1,.36,1)" }}>
-        <h2 style={{ fontFamily: FONT_DISPLAY, fontSize: "clamp(24px,5.5vw,32px)", fontWeight: 500, color: INK, lineHeight: 1.3, marginBottom: 36, letterSpacing: -0.3 }}>{pregunta.texto}</h2>
+        <h2 style={{ fontFamily: FONT_DISPLAY, fontSize: "clamp(23px,5vw,30px)", fontWeight: 500, color: INK, lineHeight: 1.3, marginBottom: 36, letterSpacing: -0.3, ...NO_LIG }}>{pregunta.texto}</h2>
         <div style={{ display: "flex", flexDirection: "column", gap: 11 }}>
           {pregunta.opciones.map((op, i) => {
             const isSel = sel === i;
@@ -309,12 +310,12 @@ function ResultScreen({ resultado, nombre, onRestart }) {
           <span style={{ padding: "5px 16px", background: r.colorMid, borderRadius: 100, fontFamily: FONT_BODY, fontSize: 12, color: r.color, fontWeight: 700, letterSpacing: 1.5 }}>{resultado.version}</span>
           <span style={{ padding: "5px 16px", background: "rgba(255,255,255,.55)", borderRadius: 100, fontFamily: FONT_BODY, fontSize: 12, color: INK_MUTED, letterSpacing: .5, fontWeight: 600 }}>{dias} días/semana</span>
         </div>
-        <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: "clamp(32px,8vw,48px)", fontWeight: 500, color: INK, lineHeight: 1.15, marginBottom: 0, letterSpacing: -0.8 }}>{nombre ? `${nombre}, ` : ""}<em style={{ fontStyle: "italic", fontWeight: 400, color: r.color }}>{r.titulo.charAt(0).toLowerCase() + r.titulo.slice(1)}</em></h1>
+        <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: "clamp(30px,7.5vw,44px)", fontWeight: 500, color: INK, lineHeight: 1.2, marginBottom: 0, letterSpacing: -0.6, maxWidth: 460, margin: "0 auto", ...NO_LIG }}>{nombre ? `${nombre}, ` : ""}<em style={{ fontStyle: "italic", fontWeight: 400, color: r.color }}>{r.titulo.charAt(0).toLowerCase() + r.titulo.slice(1)}</em></h1>
         <p style={{ fontFamily: FONT_BODY, fontSize: 13, color: r.color, letterSpacing: 1, marginTop: 12, fontWeight: 600 }}>{r.subtitulo}</p>
         <div style={{ width: 36, height: 2, background: r.color, margin: "24px auto 0", borderRadius: 2 }} />
       </div>
       <div style={{ maxWidth: 520, margin: "0 auto", padding: "0 24px 56px" }}>
-        <div style={{ ...ss(0), marginBottom: 32 }}><p style={{ fontFamily: FONT_DISPLAY, fontSize: 20, color: INK, lineHeight: 1.7, fontStyle: "italic", fontWeight: 400 }}>{r.descripcion}</p></div>
+        <div style={{ ...ss(0), marginBottom: 32 }}><p style={{ fontFamily: FONT_DISPLAY, fontSize: 20, color: INK, lineHeight: 1.7, fontStyle: "italic", fontWeight: 400, ...NO_LIG }}>{r.descripcion}</p></div>
         <div style={{ ...ss(1), marginBottom: 32 }}>
           <h3 style={{ fontFamily: FONT_BODY, fontSize: 11, letterSpacing: 2, textTransform: "uppercase", color: r.color, marginBottom: 12, fontWeight: 700 }}>¿Por qué este plan?</h3>
           <p style={{ fontFamily: FONT_BODY, fontSize: 15, color: INK, lineHeight: 1.75, fontWeight: 400 }}>{r.porQue}</p>
@@ -330,12 +331,12 @@ function ResultScreen({ resultado, nombre, onRestart }) {
         </div>
         <div style={{ ...ss(4), background: `linear-gradient(140deg, ${s.colorLight}, rgba(255,255,255,.5))`, borderRadius: 20, padding: "22px 22px", marginBottom: 40, border: `1px solid ${s.colorMid}` }}>
           <div style={{ fontFamily: FONT_BODY, fontSize: 11, color: INK_MUTED, letterSpacing: 2, textTransform: "uppercase", marginBottom: 10, fontWeight: 700 }}>Tu segunda energía</div>
-          <div style={{ fontFamily: FONT_DISPLAY, fontSize: 22, color: INK, marginBottom: 10, fontWeight: 500 }}>{resultado.secundario}</div>
+          <div style={{ fontFamily: FONT_DISPLAY, fontSize: 22, color: INK, marginBottom: 10, fontWeight: 500, ...NO_LIG }}>{resultado.secundario}</div>
           <p style={{ fontFamily: FONT_BODY, fontSize: 14, color: INK, lineHeight: 1.65, margin: 0, fontWeight: 400 }}>Eso dice mucho: hay capas. Incorpora {DESCRIPTORES[resultado.secundario]} a la semana para complementar el plan principal y entrenar de forma más completa.</p>
         </div>
         <div style={{ ...ss(5), textAlign: "center" }}>
-          <p style={{ fontFamily: FONT_DISPLAY, fontSize: 20, color: INK, fontStyle: "italic", marginBottom: 28, lineHeight: 1.6, fontWeight: 400 }}>{r.cta}</p>
-          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" style={{ fontFamily: FONT_BODY, fontSize: 15, fontWeight: 600, letterSpacing: 1, padding: "18px 0", border: "none", borderRadius: 100, background: r.color, color: "#fff", cursor: "pointer", transition: "all .3s ease", display: "block", width: "100%", maxWidth: 340, margin: "0 auto 14px", textDecoration: "none", boxShadow: `0 6px 18px ${r.color}35` }} onMouseOver={(e) => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = `0 10px 26px ${r.color}50`; }} onMouseOut={(e) => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = `0 6px 18px ${r.color}35`; }}>Reserva tu primera clase</a>
+          <p style={{ fontFamily: FONT_DISPLAY, fontSize: 20, color: INK, fontStyle: "italic", marginBottom: 28, lineHeight: 1.6, fontWeight: 400, ...NO_LIG }}>{r.cta}</p>
+          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" style={{ fontFamily: FONT_BODY, fontSize: 15, fontWeight: 600, letterSpacing: 1, padding: "18px 0", border: "none", borderRadius: 100, background: r.color, color: "#fff", cursor: "pointer", transition: "all .3s ease", display: "block", width: "100%", maxWidth: 340, margin: "0 auto 14px", textDecoration: "none", boxShadow: `0 6px 18px ${r.color}35` }} onMouseOver={(e) => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = `0 10px 26px ${r.color}50`; }} onMouseOut={(e) => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = `0 6px 18px ${r.color}35`; }}>Reserva tu clase de prueba</a>
           <button onClick={onRestart} style={{ fontFamily: FONT_BODY, fontSize: 13, color: INK_MUTED, background: "none", border: "none", cursor: "pointer", padding: 10, marginTop: 6, fontWeight: 500 }}>Volver a empezar</button>
         </div>
       </div>
@@ -352,7 +353,7 @@ export default function QuizSein() {
 
   useEffect(() => {
     const link = document.createElement("link");
-    link.href = "https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Nunito:wght@400;500;600;700&display=swap";
+    link.href = "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Nunito:wght@400;500;600;700&display=swap";
     link.rel = "stylesheet";
     document.head.appendChild(link);
     document.body.style.background = BG;
