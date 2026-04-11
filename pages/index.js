@@ -330,7 +330,7 @@ function ResultScreen({ resultado, nombre, onRestart }) {
           <p style={{ fontFamily: FONT_BODY, fontSize: 15, color: INK, lineHeight: 1.75, margin: 0, fontWeight: 400 }}>{resultado.version === "HARD" ? r.hard : r.soft}</p>
         </div>
         <div style={{ ...ss(4), background: `linear-gradient(140deg, ${s.colorLight}, rgba(255,255,255,.5))`, borderRadius: 20, padding: "22px 22px", marginBottom: 40, border: `1px solid ${s.colorMid}` }}>
-          <div style={{ fontFamily: FONT_BODY, fontSize: 11, color: INK_MUTED, letterSpacing: 2, textTransform: "uppercase", marginBottom: 10, fontWeight: 700 }}>Tu segunda energía</div>
+          <div style={{ fontFamily: FONT_BODY, fontSize: 11, color: INK_MUTED, letterSpacing: 2, textTransform: "uppercase", marginBottom: 10, fontWeight: 700 }}>Tu segundo plan</div>
           <div style={{ fontFamily: FONT_DISPLAY, fontSize: 22, color: INK, marginBottom: 10, fontWeight: 500, ...NO_LIG }}>{resultado.secundario}</div>
           <p style={{ fontFamily: FONT_BODY, fontSize: 14, color: INK, lineHeight: 1.65, margin: 0, fontWeight: 400 }}>Eso dice mucho: hay capas. Incorpora {DESCRIPTORES[resultado.secundario]} a la semana para complementar el plan principal y entrenar de forma más completa.</p>
         </div>
