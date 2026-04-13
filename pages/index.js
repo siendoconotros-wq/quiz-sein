@@ -289,7 +289,7 @@ function QuestionScreen({ pregunta, index, total, onSelect }) {
 }
 
 function ResultScreen({ resultado, nombre, onRestart }) {
-const showDebug = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("debug") === "1";
+  const showDebug = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("debug") === "1";
   const RCOLORS = { FUERZA: RESULTADOS.FUERZA.color, TONIFICA: RESULTADOS.TONIFICA.color, ENERGÍA: RESULTADOS.ENERGÍA.color, BALANCE: RESULTADOS.BALANCE.color };
   const [v, setV] = useState(false);
   const [sec, setSec] = useState([false, false, false, false, false, false]);
@@ -341,6 +341,22 @@ const showDebug = typeof window !== "undefined" && new URLSearchParams(window.lo
           <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" style={{ fontFamily: FONT_BODY, fontSize: 15, fontWeight: 600, letterSpacing: 1, padding: "18px 0", border: "none", borderRadius: 100, background: r.color, color: "#fff", cursor: "pointer", transition: "all .3s ease", display: "block", width: "100%", maxWidth: 340, margin: "0 auto 14px", textDecoration: "none", boxShadow: `0 6px 18px ${r.color}35` }} onMouseOver={(e) => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = `0 10px 26px ${r.color}50`; }} onMouseOut={(e) => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = `0 6px 18px ${r.color}35`; }}>Reserva tu clase de prueba</a>
           <button onClick={onRestart} style={{ fontFamily: FONT_BODY, fontSize: 13, color: INK_MUTED, background: "none", border: "none", cursor: "pointer", padding: 10, marginTop: 6, fontWeight: 500 }}>Volver a empezar</button>
         </div>
+        {showDebug && (
+          <div style={{ marginTop: 48, padding: "18px 20px", background: "rgba(255,255,255,.6)", borderRadius: 14, fontFamily: FONT_BODY, fontSize: 12, color: INK_MUTED, border: "1px dashed #C5CDB4" }}>
+            <div style={{ fontWeight: 700, marginBottom: 10, letterSpacing: 1.5, fontSize: 10, textTransform: "uppercase", color: INK_SOFT }}>Puntajes (debug)</div>
+            {Object.entries(resultado.puntajes).map(([plan, pts]) => (
+              <div key={plan} style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 5 }}>
+                <span style={{ width: 72, fontSize: 11, fontWeight: 600, color: INK }}>{plan}</span>
+                <div style={{ flex: 1, height: 5, background: "rgba(105,114,85,.15)", borderRadius: 3, overflow: "hidden" }}>
+                  <div style={{ height: "100%", width: `${(pts / 10) * 100}%`, background: RCOLORS[plan], borderRadius: 3, transition: "width 1.2s ease" }} />
+                </div>
+                <span style={{ fontSize: 11, fontWeight: 700, color: INK }}>{pts}</span>
+              </div>
+            ))}
+            <div style={{ marginTop: 10, fontSize: 11 }}>Intensidad: {resultado.intensidad}/6 → {resultado.version}</div>
+            {nombre && <div style={{ marginTop: 4, fontSize: 11 }}>Lead: {nombre}</div>}
+          </div>
+        )}
       </div>
     </div>
   );
@@ -380,26 +396,5 @@ export default function QuizSein() {
   if (screen === "intro") return <IntroScreen onNext={() => setScreen("lead")} />;
   if (screen === "lead") return <LeadScreen onSubmit={handleLeadSubmit} />;
   if (screen === "quiz") return <QuestionScreen pregunta={PREGUNTAS[preguntaActual]} index={preguntaActual} total={PREGUNTAS.length} onSelect={handleSelect} />;
-  if (screen === "result") return <ResultScreen resultado={resultado} nombre={lead.nombre} onRestart={handleRestart} 
-    <button onClick={onRestart} style={{ fontFamily: FONT_BODY, fontSize: 13, color: INK_MUTED, background: "none", border: "none", cursor: "pointer", padding: 10, marginTop: 6, fontWeight: 500 }}>Volver a empezar</button>
-        </div>
-        {showDebug && (
-          <div style={{ marginTop: 48, padding: "18px 20px", background: "rgba(255,255,255,.6)", borderRadius: 14, fontFamily: FONT_BODY, fontSize: 12, color: INK_MUTED, border: "1px dashed #C5CDB4" }}>
-            <div style={{ fontWeight: 700, marginBottom: 10, letterSpacing: 1.5, fontSize: 10, textTransform: "uppercase", color: INK_SOFT }}>Puntajes (debug)</div>
-            {Object.entries(resultado.puntajes).map(([plan, pts]) => (
-              <div key={plan} style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 5 }}>
-                <span style={{ width: 72, fontSize: 11, fontWeight: 600, color: INK }}>{plan}</span>
-                <div style={{ flex: 1, height: 5, background: "rgba(105,114,85,.15)", borderRadius: 3, overflow: "hidden" }}>
-                  <div style={{ height: "100%", width: `${(pts / 10) * 100}%`, background: RCOLORS[plan], borderRadius: 3, transition: "width 1.2s ease" }} />
-                </div>
-                <span style={{ fontSize: 11, fontWeight: 700, color: INK }}>{pts}</span>
-              </div>
-            ))}
-            <div style={{ marginTop: 10, fontSize: 11 }}>Intensidad: {resultado.intensidad}/6 → {resultado.version}</div>
-            {nombre && <div style={{ marginTop: 4, fontSize: 11 }}>Lead: {nombre}</div>}
-          </div>
-        )}
-      </div>
-    </div>
-  );
+  if (screen === "result") return <ResultScreen resultado={resultado} nombre={lead.nombre} onRestart={handleRestart} />;
 }
